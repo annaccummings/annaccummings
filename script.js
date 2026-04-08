@@ -1,40 +1,18 @@
-/* Center everything on the screen and set a background color */
-body {
-    background-color: #f4f4f9;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
+// 1. Find the button and the title in our HTML document
+const button = document.getElementById('color-button');
+const title = document.getElementById('main-title');
 
-/* Create a white card to hold our content */
-.container {
-    background-color: white;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    text-align: center;
-}
+// 2. Create an array of hex color codes to choose from
+const colors = ['#FF5733', '#33FF57', '#3357FF', '#F333FF', '#FFE933'];
 
-h1 {
-    color: #333;
-}
-
-/* Style the button to look modern */
-button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 20px;
-    transition: background-color 0.3s;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
+// 3. Add a "click" event listener to the button
+button.addEventListener('click', function() {
+    // Pick a random color from our array
+    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+    
+    // Change the color of the text
+    title.style.color = randomColor;
+    
+    // Change the text itself
+    title.innerText = "You clicked the button!";
+});
